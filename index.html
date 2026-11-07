@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الرياضيات التفاعلية - الصف الثالث المتوسط</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- الشريط العلوي والتنقل -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-calculator"></i>
+                <span>رياضيات 3 متوسط</span>
+            </div>
+            <ul class="nav-links">
+                <li class="active" onclick="switchTab('lessons', this)"><i class="fa-solid fa-book-open"></i> المقرر والشرح</li>
+                <li onclick="switchTab('quiz', this)"><i class="fa-solid fa-pen-to-square"></i> اختبر نفسك</li>
+                <li onclick="switchTab('speed', this)"><i class="fa-solid fa-bolt"></i> تحدي السرعة</li>
+                <li onclick="switchTab('teacher', this)"><i class="fa-solid fa-chalkboard-user"></i> قسم الأستاذ</li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- ==================== 1. قسم المقرر والشرح (صفحات الدروس المستقلة) ==================== -->
+        <section id="lessons" class="tab-content active">
+            <!-- قائمة الدروس الرئيسية -->
+            <div id="lessons-home">
+                <div class="header-box">
+                    <h2><i class="fa-solid fa-book-bookmark"></i> مقرر الدروس والشرح الشامل</h2>
+                    <p>اختر الفصل الدراسي ثم حدد الدرس المطلوب للاطلاع على الشرح والأمثلة المحلولة</p>
+                </div>
+
+                <div class="term-selector">
+                    <button class="term-btn active" onclick="filterTermLessons(1, this)">الفصل الدراسي الأول</button>
+                    <button class="term-btn" onclick="filterTermLessons(2, this)">الفصل الدراسي الثاني</button>
+                    <button class="term-btn" onclick="filterTermLessons(3, this)">الفصل الدراسي الثالث</button>
+                </div>
+
+                <!-- دروس الفصل الأول -->
+                <div id="lessons-term-1" class="lessons-term-container active">
+                    <div class="lessons-grid">
+                        <div class="lesson-card" onclick="openLesson('term1_1')">
+                            <span class="lesson-badge">الفصل 1</span>
+                            <h3>المعادلات الخطية متعددة الخطوات</h3>
+                            <p>حل المعادلات بمتغير واحد وتطبيق العمليات العكسية والتخلص من الأقواس.</p>
+                            <span class="read-more">قراءة الدرس <i class="fa-solid fa-arrow-left"></i></span>
+                        </div>
+                        <div class="lesson-card" onclick="openLesson('term1_2')">
+                            <span class="lesson-badge">الفصل 1</span>
+                            <h3>العلاقات والدوال والميل</h3>
+                            <p>تمثيل الدوال بيئياً، حساب المدى والمجال، ومعدل التغير والميل بين نقطتين.</p>
+                            <span class="read-more">قراءة الدرس <i class="fa-solid fa-arrow-left"></i></span>
+                        </div>
+                        <div class="lesson-card" onclick="openLesson('term1_3')">
+                            <span class="lesson-badge">الفصل 1</span>
+                            <h3>المتباينات الخطية والقيمة المطلقة</h3>
+                            <p>خصائص المتباينات، التأثير عند الضرب والقسمة بسالب، وحل متباينات القيمة المطلقة.</p>
+                            <span class="read-more">قراءة الدرس <i class="fa-solid fa-arrow-left"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- دروس الفصل الثاني -->
+                <div id="lessons-term-2" class="lessons-term-container">
+                    <div class="lessons-grid">
+                        <div class="lesson-card" onclick="openLesson('term2_1')">
+                            <span class="lesson-badge">الفصل 2</span>
+                            <h3>أنظمة المعادلات الخطية</h3>
+                            <p>طرق حل النظام (معادلتين بمتغيرين) بالتمثيل، التعويض، والحذف بالجمع أو الضرب.</p>
+                            <span class="read-more">قراءة الدرس <i class="fa-solid fa-arrow-left"></i></span>
+                        </div>
+                        <div class="lesson-card" onclick="openLesson('term2_2')">
+                            <span class="lesson-badge">الفصل 2</span>
+                            <h3>كثيرات الحدود والتحليل</h3>
+                            <p>ضرب وقسمة أحاديات الحدود، تحليل كثيرات الحدود والفرق بين مربعين والمربعات الكاملة.</p>
+                            <span class="read-more">قراءة الدرس <i class="fa-solid fa-arrow-left"></i></span>
+                        </div>
+                        <div class="lesson-card" onclick="openLesson('term2_3')">
+                            <span class="lesson-badge">الفصل 2</span>
+                            <h3>الدوال التربيعية والقانون العام</h3>
+                            <p>الصيغة القياسية، تحديد المميز، وحل المعادلات التربيعية باستخدام القانون العام.</p>
+                            <span class="read-more">قراءة الدرس <i class="fa-solid fa-arrow-left"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- دروس الفصل الثالث -->
+                <div id="lessons-term-3" class="lessons-term-container">
+                    <div class="lessons-grid">
+                        <div class="lesson-card" onclick="openLesson('term3_1')">
+                            <span class="lesson-badge">الفصل 3</span>
+                            <h3>العبارات الجذرية ونظرية فيثاغورس</h3>
+                            <p>تبسيط العبارات الجذرية، العمليات عليها، وتطبيقات نظرية فيثاغورس في المثلث القائم.</p>
+                            <span class="read-more">قراءة الدرس <i class="fa-solid fa-arrow-left"></i></span>
+                        </div>
+                        <div class="lesson-card" onclick="openLesson('term3_2')">
+                            <span class="lesson-badge">الفصل 3</span>
+                            <h3>النسب المثلثية (sin / cos / tan)</h3>
+                            <p>التعرف على النسب المثلثية الأساسية واستخدامها لإيجاد أطوال الأضلاع والزوايا المجهولة.</p>
+                            <span class="read-more">قراءة الدرس <i class="fa-solid fa-arrow-left"></i></span>
+                        </div>
+                        <div class="lesson-card" onclick="openLesson('term3_3')">
+                            <span class="lesson-badge">الفصل 3</span>
+                            <h3>الاحتمالات والتباديل والتوافيق</h3>
+                            <p>حساب الاحتمالات المركبة، مبدأ العد الأساسي، الفرق بين التباديل والتوافيق وترتيب النتائج.</p>
+                            <span class="read-more">قراءة الدرس <i class="fa-solid fa-arrow-left"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- صفحة الدرس المستقلة (تظهر عند اختيار درس) -->
+            <div id="lesson-detail-view" class="hidden">
+                <button class="btn btn-secondary back-btn" onclick="backToLessonsHome()">
+                    <i class="fa-solid fa-arrow-right"></i> العودة لقائمة الدروس
+                </button>
+                <div id="lesson-content-box" class="lesson-detail-card">
+                    <!-- سيتم تعبئتها ديناميكياً عبر الجافاسكريبت -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 2. قسم اختبر نفسك (بخيارات عشوائية) ==================== -->
+        <section id="quiz" class="tab-content">
+            <div class="quiz-controls" id="quiz-setup">
+                <h2><i class="fa-solid fa-vial"></i> اختبر نفسك في المنهج</h2>
+                <p>اختر ما يناسبك لبدء الاختبار (مع خيارات موزعة عشوائياً لكل سؤال):</p>
+                <div class="setup-form">
+                    <div class="form-group">
+                        <label>اختر الفصل الدراسي:</label>
+                        <select id="quiz-term-select">
+                            <option value="all">كامل المنهج (الفصول 1، 2، 3)</option>
+                            <option value="1">الفصل الدراسي الأول</option>
+                            <option value="2">الفصل الدراسي الثاني</option>
+                            <option value="3">الفصل الدراسي الثالث</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>عدد الأسئلة:</label>
+                        <select id="quiz-count-select">
+                            <option value="5">5 أسئلة</option>
+                            <option value="10">10 أسئلة</option>
+                            <option value="15">15 سؤال</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="startQuiz()">ابدأ الاختبار الآن</button>
+                </div>
+            </div>
+
+            <div id="quiz-box" class="quiz-box hidden">
+                <div class="quiz-header">
+                    <span id="quiz-progress">السؤال 1 من 5</span>
+                    <span id="quiz-timer"><i class="fa-regular fa-clock"></i> 00:00</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+
+                <div class="question-container">
+                    <h3 id="question-text">نص السؤال يظهر هنا...</h3>
+                    <div id="options-container" class="options-grid"></div>
+                </div>
+
+                <div id="explanation-box" class="explanation-box hidden">
+                    <h4><i class="fa-solid fa-lightbulb"></i> طريقة الحل والشرح:</h4>
+                    <p id="explanation-text"></p>
+                    <button class="btn btn-next" onclick="nextQuestion()">السؤال التالي <i class="fa-solid fa-arrow-left"></i></button>
+                </div>
+            </div>
+
+            <div id="quiz-result" class="result-box hidden">
+                <i class="fa-solid fa-trophy result-icon"></i>
+                <h2>أحسنت! أكملت الاختبار</h2>
+                <div class="score-display">الدرجة: <span id="final-score">0</span> / <span id="total-score">0</span></div>
+                <p id="result-message"></p>
+                <button class="btn btn-primary" onclick="resetQuiz()">إعادة الاختبار</button>
+            </div>
+        </section>
+
+        <!-- ==================== 3. قسم تحدي السرعة ==================== -->
+        <section id="speed" class="tab-content">
+            <div class="speed-container">
+                <div class="speed-header">
+                    <h2><i class="fa-solid fa-bolt-lightning"></i> تحدي السرعة الحسابي</h2>
+                    <p>أجب بسرعة على العمليات (جمع، طرح، ضرب، قسمة) قبل انتهاء الوقت!</p>
+                </div>
+
+                <div id="speed-start-screen">
+                    <div class="high-score-badge">أعلى رقم قياسي: <span id="high-score-val">0</span> نقطة</div>
+                    <button class="btn btn-speed-start" onclick="startSpeedGame()">ابدأ التحدي (30 ثانية)</button>
+                </div>
+
+                <div id="speed-game-screen" class="hidden">
+                    <div class="speed-stats">
+                        <div class="stat-card">الوقت المتبقي: <span id="speed-timer">30</span>s</div>
+                        <div class="stat-card">النقاط: <span id="speed-score">0</span></div>
+                        <div class="stat-card">الكومبو: x<span id="speed-combo">1</span></div>
+                    </div>
+
+                    <div class="math-problem-box">
+                        <span id="speed-num1">0</span>
+                        <span id="speed-op">+</span>
+                        <span id="speed-num2">0</span>
+                        <span>=</span>
+                        <span>؟</span>
+                    </div>
+
+                    <div id="speed-options" class="speed-options-grid"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 4. قسم الأستاذ (بكلمة مرور math1) ==================== -->
+        <section id="teacher" class="tab-content">
+            <!-- شاشة تسجيل الدخول بكلمة المرور -->
+            <div id="teacher-login-box" class="quiz-controls">
+                <h2><i class="fa-solid fa-lock"></i> لوحة تحكم المعلم</h2>
+                <p>هذا القسم محمي بكلمة مرور. يرجى إدخال كلمة المرور للمتابعة:</p>
+                <div class="setup-form">
+                    <div class="form-group">
+                        <label>كلمة المرور:</label>
+                        <input type="password" id="teacher-password-input" placeholder="أدخل كلمة المرور (math1)...">
+                    </div>
+                    <button class="btn btn-primary" onclick="verifyTeacherPassword()">دخول للوحة المعلم</button>
+                    <p id="login-error-msg" class="error-msg hidden" style="color: var(--wrong); font-weight: bold; margin-top: 5px;">كلمة المرور غير صحيحة. حاول مرة أخرى (math1)</p>
+                </div>
+            </div>
+
+            <!-- المحتوى الفعلي للوحة المعلم (يظهر بعد كلمة المرور الصحيحة) -->
+            <div id="teacher-dashboard-box" class="teacher-container hidden">
+                <div class="header-box" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h2><i class="fa-solid fa-chalkboard-user"></i> لوحة أدوات المعلم</h2>
+                        <p>إضافة أسئلة مخصصة وبناء بنك الأسئلة وتوليد نماذج اختبار للطباعة</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="lockTeacherDashboard()" style="background: #64748b;"><i class="fa-solid fa-lock"></i> قفل اللوحة</button>
+                </div>
+
+                <div class="teacher-grid">
+                    <!-- نموذج إضافة سؤال -->
+                    <div class="card font-form">
+                        <h3><i class="fa-solid fa-plus-circle"></i> إضافة سؤال جديد للمنهج</h3>
+                        <form id="add-question-form" onsubmit="saveCustomQuestion(event)">
+                            <div class="form-group">
+                                <label>الفصل الدراسي:</label>
+                                <select id="new-q-term" required>
+                                    <option value="1">الفصل الأول</option>
+                                    <option value="2">الفصل الثاني</option>
+                                    <option value="3">الفصل الثالث</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>نص السؤال:</label>
+                                <input type="text" id="new-q-text" placeholder="أدخل نص السؤال الرياضي..." required>
+                            </div>
+                            <div class="form-group-grid">
+                                <input type="text" id="new-opt-correct" placeholder="الإجابة الصحيحة" required>
+                                <input type="text" id="new-opt-1" placeholder="خيار خاطئ (1)" required>
+                                <input type="text" id="new-opt-2" placeholder="خيار خاطئ (2)" required>
+                                <input type="text" id="new-opt-3" placeholder="خيار خاطئ (3)" required>
+                            </div>
+                            <div class="form-group">
+                                <label>خطوات الشرح والحل:</label>
+                                <textarea id="new-q-explain" rows="2" placeholder="اكتب طريقة الحل للتوضيح للطالب..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> حفظ السؤال في النظام</button>
+                        </form>
+                    </div>
+
+                    <!-- طباعة النماذج -->
+                    <div class="card print-tools">
+                        <h3><i class="fa-solid fa-print"></i> طباعة ورقة اختبار PDF</h3>
+                        <p>إنشاء نموذج اختبار جاهز للطباعة مباشرة شامل الترويسة والخيارات.</p>
+                        <div class="form-group">
+                            <label>اختر الفصل لتوليد الورقة:</label>
+                            <select id="print-term-select">
+                                <option value="1">اختبار الفصل الأول</option>
+                                <option value="2">اختبار الفصل الثاني</option>
+                                <option value="3">اختبار الفصل الثالث</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-secondary" onclick="generatePrintPaper()"><i class="fa-solid fa-file-pdf"></i> معالجة وتوليد ورقة الطباعة</button>
+                    </div>
+                </div>
+
+                <!-- إدارة وحذف الأسئلة -->
+                <div class="card manage-questions-card" style="margin-top: 1.5rem;">
+                    <h3><i class="fa-solid fa-list-check"></i> إدارة الأسئلة المضافة (استعراض وحذف)</h3>
+                    <div id="custom-questions-list" class="questions-list-container">
+                        <!-- يُعبأ ديناميكياً -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
